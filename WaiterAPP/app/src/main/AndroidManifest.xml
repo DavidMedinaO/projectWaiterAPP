@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WaiterAPP">
         <activity
+            android:name=".Admin"
+            android:exported="true" />
+        <activity
+            android:name=".Cliente"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

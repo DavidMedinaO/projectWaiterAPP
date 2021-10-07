@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#51161B"
+    android:background="#DABFBA"
     tools:context=".MainActivity">
 
     <ImageView
@@ -70,7 +70,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
-        android:background="@drawable/animation_list_btn_2"
+        android:background="@drawable/animation_list_btn_1"
         android:text="Register"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"

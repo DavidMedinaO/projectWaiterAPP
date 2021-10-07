@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "62206483685",
+    "project_id": "fir-app-652fa",
+    "storage_bucket": "fir-app-652fa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:62206483685:android:5eb2ef16768c98bb42480c",
+        "android_client_info": {
+          "package_name": "com.example.waiterapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "62206483685-fuo56m1apqo5aj563654ap0p3haonsob.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMrjgc7kitNWLQr1wBj5Wma1NgFcj00g0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "62206483685-fuo56m1apqo5aj563654ap0p3haonsob.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
