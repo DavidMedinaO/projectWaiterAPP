@@ -10,86 +10,35 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class MainActivity extends AppCompatActivity {
 
-    private AnimationDrawable anim, anim2;
-    private Button button, button2;
-    private EditText email, passw;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
-        init(); //conexion con java y xml
-
-        // animacion para los botones
-        anim = (AnimationDrawable) button.getBackground();
-        anim.setEnterFadeDuration(2300);
-        anim.setExitFadeDuration(2300);
-
-        anim2 = (AnimationDrawable) button2.getBackground();
-        anim2.setEnterFadeDuration(2800);
-        anim2.setExitFadeDuration(2800);
-
-        //Metodo para boton login ir a activity Cliente y Admin
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                if(email.getText().toString().equals("") || passw.getText().toString().equals("")){
-                    Toast.makeText( MainActivity.this, "Ingrese un Email o contraseña", Toast.LENGTH_SHORT).show();
-                }else if(email.getText().toString().equals("dany") && passw.getText().toString().equals("123")){
-                    Intent admin = new Intent(MainActivity.this, Admin.class);
-                    startActivity(admin);
-                    email.getText().clear();
-                    passw.getText().clear();
-                }else if(!email.getText().toString().contains("@")){
-                    Toast.makeText( MainActivity.this, "Le falta el @", Toast.LENGTH_SHORT).show();
-                } else{
-                    Intent cliente = new Intent(MainActivity.this, Cliente.class);
-                    startActivity(cliente);
-                    email.getText().clear();
-                    passw.getText().clear();
-                }
-
-            }
-
-        });
-
         //conexion firebase
-
+        mAuth = FirebaseAuth.getInstance();
+        
     }
 
-    //Conexion de java y xml
-    private void init(){
-        this.button = findViewById(R.id.button);
-        this.button2 = findViewById(R.id.button2);
-        this.email = findViewById(R.id.editTextTextPersonName);
-        this.passw = findViewById(R.id.editTextTextPassword);
-    }
-
-    //inicia la animacion de los botones
+    //Firebase
     @Override
-    protected void onResume() {
-        super.onResume();
-        if(anim != null && !anim.isRunning()){
-            anim.start();
-        }
-        if(anim2 != null && !anim2.isRunning()){
-            anim2.start();
-        }
-    }
-
-    //detiene la animacion de los botones
-    @Override
-    protected void onPause() {
-        super.onPause();
-        if(anim != null && anim.isRunning()){
-            anim.stop();
-        }
-        if(anim2 != null && anim2.isRunning()){
-            anim2.stop();
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser == null) {
+            startActivity(new Intent(MainActivity.this, Login.class));
+        }else if(currentUser.getUid().equals("dW31puoYi9bVRiZ5O43HPoQTVAg2")){
+            startActivity(new Intent(MainActivity.this, Admin.class));
+        }else{
+            startActivity(new Intent(MainActivity.this, Cliente.class));
         }
     }
 }
