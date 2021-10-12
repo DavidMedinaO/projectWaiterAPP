@@ -29,7 +29,7 @@ public class Register extends AppCompatActivity {
 
     private AnimationDrawable anim;
     private Button button;
-    private EditText email, passw, name, phone;
+    private EditText email, passw, name, phone, confirmar;
     private TextView login;
 
     private String userID;
@@ -85,6 +85,7 @@ public class Register extends AppCompatActivity {
         this.name = findViewById(R.id.editTextTextName);
         this.phone = findViewById(R.id.editTextTextTelefono);
         this.login = findViewById(R.id.login);
+        this.confirmar = findViewById(R.id.editTextTextConfirmar);
     }
 
     //inicia la animacion de los botones
@@ -111,6 +112,7 @@ public class Register extends AppCompatActivity {
         String mail = email.getText().toString();
         String telefo = phone.getText().toString();
         String password = passw.getText().toString();
+        String confir = confirmar.getText().toString();
 
         if(TextUtils.isEmpty(nombre)){
             Toast.makeText( Register.this, "Ingrese un nombre", Toast.LENGTH_SHORT).show();
@@ -120,6 +122,8 @@ public class Register extends AppCompatActivity {
             Toast.makeText( Register.this, "Ingrese un telefono", Toast.LENGTH_SHORT).show();
         }else if(TextUtils.isEmpty(password)){
             Toast.makeText( Register.this, "Ingrese una Contraseña", Toast.LENGTH_SHORT).show();
+        }else if(!confirmar.getText().toString().equals(passw.getText().toString())){
+            Toast.makeText( Register.this, "La contraseña debe ser la misma", Toast.LENGTH_SHORT).show();
         }else if(!email.getText().toString().contains("@")){
             Toast.makeText( Register.this, "Le falta el @", Toast.LENGTH_SHORT).show();
         }else{
@@ -146,7 +150,7 @@ public class Register extends AppCompatActivity {
                         Toast.makeText( Register.this, "Usuario Registrado", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(Register.this, Login.class));
                     }else{
-                        Toast.makeText( Register.this, "Usuario no registrado" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText( Register.this, "Usuario no registrado: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }
             });
