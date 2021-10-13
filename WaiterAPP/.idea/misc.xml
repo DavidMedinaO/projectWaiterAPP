@@ -3,11 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+<<<<<<< Updated upstream
         <entry key="..\:/Users/danie/Desktop/other/projectWaiterAPP/WaiterAPP/app/src/main/res/layout/activity_admin.xml" value="0.176" />
         <entry key="..\:/Users/danie/Desktop/other/projectWaiterAPP/WaiterAPP/app/src/main/res/layout/activity_cliente.xml" value="0.11614583333333334" />
         <entry key="..\:/Users/danie/Desktop/other/projectWaiterAPP/WaiterAPP/app/src/main/res/layout/activity_login.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/danie/Desktop/other/projectWaiterAPP/WaiterAPP/app/src/main/res/layout/activity_main.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/danie/Desktop/other/projectWaiterAPP/WaiterAPP/app/src/main/res/layout/activity_register.xml" value="0.13020833333333334" />
+=======
+        <entry key="..\:/Users/david/Documents/GitHub/projectWaiterAPP/WaiterAPP/app/src/main/res/layout/activity_cliente.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/david/Documents/GitHub/projectWaiterAPP/WaiterAPP/app/src/main/res/layout/activity_login.xml" value="0.2957427536231884" />
+>>>>>>> Stashed changes
         <entry key="..\:/Users/santi/Documents/GitHub/projectWaiterAPP/WaiterAPP/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/santi/Documents/GitHub/projectWaiterAPP/WaiterAPP/app/src/main/res/drawable/animation_list_btn_1.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/santi/Documents/GitHub/projectWaiterAPP/WaiterAPP/app/src/main/res/drawable/color_1.xml" value="0.22135416666666666" />
