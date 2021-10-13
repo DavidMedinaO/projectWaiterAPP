@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DABFBA"
+    android:background="#FCF3CF"
+
     tools:context=".Login">
 
     <ImageView
@@ -15,9 +16,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="?attr/actionModePasteDrawable" />
+        android:src="@drawable/logoapp" />
 
     <EditText
+        android:drawableLeft="@drawable/ic_email"
+        android:drawablePadding="10dp"
+        android:paddingLeft="10dp"
+        android:background="@drawable/edittext_rounded"
         android:id="@+id/editTextTextPersonName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,25 +33,29 @@
         android:hint="Email"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
+        android:drawableLeft="@drawable/ic_password"
+        android:drawablePadding="10dp"
+        android:paddingLeft="10dp"
+        android:background="@drawable/edittext_rounded"
         android:id="@+id/editTextTextPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="32dp"
         android:ems="10"
         android:hint="Contraseña"
         android:inputType="textPassword"
         android:minHeight="48dp"
         android:textColor="@color/white"
-        android:textColorHint="@color/white"
+        android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
@@ -73,6 +82,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
         android:text="¿No tienes una cuenta?"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/register"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />
@@ -83,6 +93,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="100dp"
+        android:textColor="@color/black"
         android:text="Registrate"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
