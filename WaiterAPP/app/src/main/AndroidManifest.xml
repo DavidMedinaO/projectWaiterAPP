@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
+            android:name=".adminprueba"
+            android:exported="true" />
+        <activity
+            android:name=".admineditar"
+            android:exported="true" />
+        <activity
             android:name=".Register"
             android:exported="true" />
         <activity
