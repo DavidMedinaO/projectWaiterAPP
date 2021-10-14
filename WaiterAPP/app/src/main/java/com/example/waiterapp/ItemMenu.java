@@ -1,6 +1,8 @@
 package com.example.waiterapp;
 
-public class ItemMenu {
+import java.io.Serializable;
+
+public class ItemMenu implements Serializable {
     private int imgFoto;
     private String titulo;
     private String contenido;

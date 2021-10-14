@@ -2,6 +2,7 @@ package com.example.waiterapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,17 +52,17 @@ public class Adaptador extends BaseAdapter  {
         tvTitulo.setText(Item.getTitulo());
         tvEditar.setText(Item.getContenido());
 
-        /*convertView.setOnClickListener(new View.OnClickListener() {
+        convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(context, ArrendarFinal.class);
-                intent.putExtra("ObjetoE",Item);
+                Intent intent = new Intent(context, adminprueba.class);
+                intent.putExtra("ObjetoE", Item);
                 context.startActivity(intent);
 
 
             }
-        });*/
+        });
 
 
         return convertView;

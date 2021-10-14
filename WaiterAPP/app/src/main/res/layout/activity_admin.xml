@@ -9,15 +9,16 @@
 
     <Button
         android:id="@+id/salir"
-        android:layout_width="77dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="69dp"
+        android:layout_height="38dp"
         android:background="@drawable/animation_list_btn_1"
         android:text="SALIR"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.953"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
 
     <Button
         android:id="@+id/eliminar"
