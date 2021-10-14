@@ -12,10 +12,10 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_marginTop="32dp"
+        android:src="@drawable/logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/logo" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextTextEmail"
@@ -62,7 +62,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="9dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/animation_list_btn_1"
         android:text="Registrate"
@@ -70,7 +70,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextConfirmar" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextCodigoRes" />
 
     <TextView
         android:id="@+id/textView3"
@@ -97,24 +97,24 @@
 
     <EditText
         android:id="@+id/editTextTextName"
-        android:background="@drawable/edittext_rounded"
-        android:drawableLeft="@drawable/ic_user"
-        android:drawablePadding="10dp"
-        android:paddingLeft="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
+        android:background="@drawable/edittext_rounded"
+        android:drawableLeft="@drawable/ic_user"
+        android:drawablePadding="10dp"
         android:ems="10"
+        android:hint="Nombre completo"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:hint="Nombre completo"
+        android:paddingLeft="10dp"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
     <EditText
         android:id="@+id/editTextTextTelefono"
@@ -138,22 +138,55 @@
 
     <EditText
         android:id="@+id/editTextTextConfirmar"
-        android:background="@drawable/edittext_rounded"
-        android:drawableLeft="@drawable/ic_password"
-        android:drawablePadding="10dp"
-        android:paddingLeft="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:ems="10"
         android:layout_marginTop="15dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/edittext_rounded"
+        android:drawableLeft="@drawable/ic_password"
+        android:drawablePadding="10dp"
+        android:ems="10"
         android:hint="Confirmar contraseña"
         android:inputType="textPassword"
         android:minHeight="48dp"
+        android:paddingLeft="10dp"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <EditText
+        android:id="@+id/editTextTextCodigoRes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/edittext_rounded"
+        android:drawableLeft="@drawable/ic_password"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="Codigo restaurante"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:paddingLeft="10dp"
+        android:textColor="@color/black"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextConfirmar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

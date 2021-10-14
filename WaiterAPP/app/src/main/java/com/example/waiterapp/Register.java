@@ -9,8 +9,11 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,8 +32,9 @@ public class Register extends AppCompatActivity {
 
     private AnimationDrawable anim;
     private Button button;
-    private EditText email, passw, name, phone, confirmar;
+    private EditText email, passw, name, phone, confirmar, codigo;
     private TextView login;
+    private Spinner lista;
 
     private String userID;
     private FirebaseAuth mAuth;
@@ -42,6 +46,37 @@ public class Register extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         init(); //conexion con java y xml
+
+        //Llenar el spinner
+        String [] SPtipos ={"Tipo usuario","Cliente","Admin"};
+        ArrayAdapter<String> Adapter3 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,SPtipos);
+        lista.setAdapter(Adapter3);
+
+        //Cuando se seleccione al admin en el spinner
+        lista.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                if(lista.getSelectedItemPosition() == 0){
+                    Toast.makeText( Register.this, "Registro", Toast.LENGTH_SHORT).show();
+                }else if(lista.getSelectedItemPosition() == 1){
+                    Toast.makeText( Register.this, "cliente", Toast.LENGTH_SHORT).show();
+                    name.setHint("Nombre completo");
+                    codigo.setVisibility(View.INVISIBLE);
+                    codigo.setText("2021");
+                }else{
+                    Toast.makeText( Register.this, "Admin", Toast.LENGTH_SHORT).show();
+                    name.setHint("Nombre restaurante");
+                    codigo.setVisibility(View.VISIBLE);
+                    codigo.setText("");
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                Toast.makeText( Register.this, "No selecciono nada", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         // animacion para los botones
         anim = (AnimationDrawable) button.getBackground();
@@ -86,6 +121,8 @@ public class Register extends AppCompatActivity {
         this.phone = findViewById(R.id.editTextTextTelefono);
         this.login = findViewById(R.id.login);
         this.confirmar = findViewById(R.id.editTextTextConfirmar);
+        this.lista = findViewById(R.id.spinner);
+        this.codigo = findViewById(R.id.editTextTextCodigoRes);
     }
 
     //inicia la animacion de los botones
@@ -112,12 +149,19 @@ public class Register extends AppCompatActivity {
         String mail = email.getText().toString();
         String telefo = phone.getText().toString();
         String password = passw.getText().toString();
-        String confir = confirmar.getText().toString();
+        int tipoUsuario = lista.getSelectedItemPosition();
+        String codi = codigo.getText().toString();
 
         if(TextUtils.isEmpty(nombre)){
             Toast.makeText( Register.this, "Ingrese un nombre", Toast.LENGTH_SHORT).show();
+        }else if(tipoUsuario == 0){
+            Toast.makeText( Register.this, "Seleccione un tipo de usuario", Toast.LENGTH_SHORT).show();
         }else if(TextUtils.isEmpty(mail)){
             Toast.makeText( Register.this, "Ingrese un correo", Toast.LENGTH_SHORT).show();
+        }else if(TextUtils.isEmpty(codi)){
+            Toast.makeText( Register.this, "Ingrese el codigo del restaurante", Toast.LENGTH_SHORT).show();
+        }else if(!codigo.getText().toString().equals("2021")){
+            Toast.makeText( Register.this, "Codigo no valido", Toast.LENGTH_SHORT).show();
         }else if(TextUtils.isEmpty(telefo)){
             Toast.makeText( Register.this, "Ingrese un telefono", Toast.LENGTH_SHORT).show();
         }else if(TextUtils.isEmpty(password)){
@@ -128,6 +172,7 @@ public class Register extends AppCompatActivity {
             Toast.makeText( Register.this, "Le falta el @", Toast.LENGTH_SHORT).show();
         }else{
 
+            //Aqui se insertan los usuarios con sus datos
             mAuth.createUserWithEmailAndPassword(mail, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
