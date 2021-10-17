@@ -56,9 +56,22 @@ public class Adaptador extends BaseAdapter  {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(context, adminprueba.class);
-                intent.putExtra("ObjetoE", Item);
-                context.startActivity(intent);
+                String pantalla = (String) tvEditar.getText();
+
+                if(pantalla.equals("EDITAR")){
+
+                    Intent intent = new Intent(context, adminprueba.class);
+                    intent.putExtra("ObjetoE", Item);
+                    context.startActivity(intent);
+
+
+
+                }else{
+                    Intent intent = new Intent(context, Login.class);
+                    intent.putExtra("ObjetoE", Item);
+                    context.startActivity(intent);
+
+                }
 
 
             }
