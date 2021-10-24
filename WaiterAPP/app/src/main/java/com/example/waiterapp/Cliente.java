@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -16,13 +17,16 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
 import java.util.ArrayList;
 
 public class Cliente extends AppCompatActivity {
 
-    private Button button, buttonElimi;
+    private Button button, buttonElimi, scann;
     private FirebaseAuth mAuth;
+    private EditText resultadoQR;
 
     private ListView lvItems;
     private Adaptador adaptador;
@@ -51,6 +55,23 @@ public class Cliente extends AppCompatActivity {
             }
         });
 
+        //Metodo para boton QR al dar click
+        //Escanea y recibe informacion del QR
+        scann.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                IntentIntegrator integrador = new IntentIntegrator(Cliente.this);
+                integrador.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES); //lee todos los tipo de QR
+                integrador.setPrompt("Lector - QR"); //Mensaje del QR
+                integrador.setCameraId(0); //0 es camara de atras
+                integrador.setBeepEnabled(true); //Suene cuando escanee
+                integrador.setBarcodeImageEnabled(true); // lea codigo de barras
+                integrador.initiateScan();
+
+            }
+        });
+
         //Metodo para boton eliminar al dar click
         //Elimina el usuario actual
         buttonElimi.setOnClickListener(new View.OnClickListener() {
@@ -68,6 +89,24 @@ public class Cliente extends AppCompatActivity {
     private void init(){
         this.button = findViewById(R.id.salir);
         this.buttonElimi = findViewById(R.id.eliminar);
+        this.scann = findViewById(R.id.btnScan);
+        this.resultadoQR = findViewById(R.id.txtResultadoQR);
+    }
+
+    // Metodo para obtener los resultados del QR
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if(result != null) {
+            if(result.getContents() == null) {
+                Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
+                resultadoQR.setText(result.getContents());
+            }
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
     }
 
     //Metodo para eliminar usuario de firebase
@@ -101,6 +140,7 @@ public class Cliente extends AppCompatActivity {
         return listItems;
     }
 
+    //Cargar el arraylist con esos valores
     private ArrayList<ItemMenu>  ListHabit() {
 
         ArrayList<ItemMenu> listItem = new ArrayList<>();
