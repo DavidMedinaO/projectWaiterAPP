@@ -115,10 +115,10 @@ public class Admin extends AppCompatActivity {
         listItem.add(new ItemMenu(R.drawable.comida4,"PIZZAS","EDITAR"));
         listItem.add(new ItemMenu(R.drawable.comida5,"SOPAS","EDITAR"));
         listItem.add(new ItemMenu(R.drawable.comida6,"PASTAS","EDITAR"));
-        listItem.add(new ItemMenu(R.drawable.comida4,"PIZZAS","EDITAR"));
-        listItem.add(new ItemMenu(R.drawable.comida5,"SOPAS","EDITAR"));
-        listItem.add(new ItemMenu(R.drawable.comida6,"PASTAS","EDITAR"));
-        listItem.add(new ItemMenu(R.drawable.comida4,"PIZZAS","EDITAR"));
+        listItem.add(new ItemMenu(R.drawable.comida3,"HAMBURGUESAS","EDITAR"));
+        listItem.add(new ItemMenu(R.drawable.comida7,"PERROS","EDITAR"));
+        listItem.add(new ItemMenu(R.drawable.comida8,"CARNES","EDITAR"));
+        listItem.add(new ItemMenu(R.drawable.comida9,"ENSALADAS","EDITAR"));
         listItem.add(new ItemMenu(R.drawable.comida5,"SOPAS","EDITAR"));
         listItem.add(new ItemMenu(R.drawable.comida6,"PASTAS","EDITAR"));
         return listItem;

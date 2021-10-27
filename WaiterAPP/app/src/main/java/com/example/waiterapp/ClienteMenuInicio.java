@@ -41,10 +41,10 @@ public class ClienteMenuInicio extends AppCompatActivity {
         listItem.add(new ItemMenu(R.drawable.comida4,"PIZZAS","PEDIR"));
         listItem.add(new ItemMenu(R.drawable.comida5,"SOPAS","PEDIR"));
         listItem.add(new ItemMenu(R.drawable.comida6,"PASTAS","PEDIR"));
-        listItem.add(new ItemMenu(R.drawable.comida4,"PIZZAS","PEDIR"));
-        listItem.add(new ItemMenu(R.drawable.comida5,"SOPAS","PEDIR"));
-        listItem.add(new ItemMenu(R.drawable.comida6,"PASTAS","PEDIR"));
-        listItem.add(new ItemMenu(R.drawable.comida4,"PIZZAS","PEDIR"));
+        listItem.add(new ItemMenu(R.drawable.comida3,"HAMBURGUESA","PEDIR"));
+        listItem.add(new ItemMenu(R.drawable.comida7,"PERROS","PEDIR"));
+        listItem.add(new ItemMenu(R.drawable.comida8,"CARNES","PEDIR"));
+        listItem.add(new ItemMenu(R.drawable.comida9,"ENSALADAS","PEDIR"));
         listItem.add(new ItemMenu(R.drawable.comida5,"SOPAS","PEDIR"));
         listItem.add(new ItemMenu(R.drawable.comida6,"PASTAS","PEDIR"));
         return listItem;
