@@ -28,20 +28,12 @@ public class Cliente extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private EditText resultadoQR;
 
-    private ListView lvItems;
-    private Adaptador adaptador;
-    private ArrayList<ItemMenu> listMenu;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cliente);
 
-        //Mostrar items Menú
-        lvItems = findViewById(R.id.lvItems);
-        listMenu = GetArrayItems();
-        adaptador = new Adaptador(this,GetArrayItems());
-        lvItems.setAdapter(adaptador);
+
 
         init(); //conexion con java y xml
 
@@ -103,6 +95,10 @@ public class Cliente extends AppCompatActivity {
             } else {
                 Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
                 resultadoQR.setText(result.getContents());
+                //David Medina - Mandar a la pantalla correspondiente
+                Intent intent = new Intent(Cliente.this, ClienteMenuInicio.class);
+                startActivity(intent);
+
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data);
@@ -132,28 +128,5 @@ public class Cliente extends AppCompatActivity {
         });
     }//fin metodo deleteaccount
 
-    //Llenar lista con los items del menu
-    private ArrayList<ItemMenu> GetArrayItems(){
 
-        ArrayList<ItemMenu> listItems = new ArrayList<>();
-        listItems = ListHabit();
-        return listItems;
-    }
-
-    //Cargar el arraylist con esos valores
-    private ArrayList<ItemMenu>  ListHabit() {
-
-        ArrayList<ItemMenu> listItem = new ArrayList<>();
-
-        listItem.add(new ItemMenu(R.drawable.comida4,"PIZZAS","PEDIR"));
-        listItem.add(new ItemMenu(R.drawable.comida5,"SOPAS","PEDIR"));
-        listItem.add(new ItemMenu(R.drawable.comida6,"PASTAS","PEDIR"));
-        listItem.add(new ItemMenu(R.drawable.comida4,"PIZZAS","PEDIR"));
-        listItem.add(new ItemMenu(R.drawable.comida5,"SOPAS","PEDIR"));
-        listItem.add(new ItemMenu(R.drawable.comida6,"PASTAS","PEDIR"));
-        listItem.add(new ItemMenu(R.drawable.comida4,"PIZZAS","PEDIR"));
-        listItem.add(new ItemMenu(R.drawable.comida5,"SOPAS","PEDIR"));
-        listItem.add(new ItemMenu(R.drawable.comida6,"PASTAS","PEDIR"));
-        return listItem;
-    }
 }

@@ -5,15 +5,17 @@
 
     <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" />
 
-
     <application
         android:allowBackup="true"
+        android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:hardwareAccelerated="true"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity
+            android:name=".ClienteMenuInicio"
+            android:exported="true" />
         <activity
             android:name=".adminprueba"
             android:exported="true" />
@@ -45,7 +47,6 @@
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:screenOrientation="fullSensor"
             tools:replace="screenOrientation" />
-
     </application>
 
 </manifest>

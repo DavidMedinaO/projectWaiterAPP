@@ -4,33 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D5D8DC"
+    android:background="#FDFEFE"
     tools:context=".Cliente">
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="375dp"
+        android:layout_height="70dp"
         android:text="Bienvenido Cliente"
-        android:textColor="#090808"
+        android:textAlignment="center"
+        android:textColor="@color/black"
         android:textSize="40dp"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.079" />
+        app:layout_constraintVertical_bias="0.173" />
 
     <Button
         android:id="@+id/salir"
-        android:layout_width="70dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="98dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="652dp"
         android:background="@drawable/animation_list_btn_1"
         android:text="SALIR"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.985"
+        app:layout_constraintHorizontal_bias="0.824"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,27 +39,20 @@
         android:id="@+id/eliminar"
         android:layout_width="161dp"
         android:layout_height="50dp"
-        android:layout_marginTop="704dp"
+        android:layout_marginTop="652dp"
         android:background="@drawable/animation_list_btn_1"
         android:text="Eliminar usuario"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.276"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ListView
-        android:id="@+id/lvItems"
-        android:layout_width="413dp"
-        android:layout_height="523dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnScan"
-        android:layout_width="85dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="186dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="308dp"
         android:background="@drawable/animation_list_btn_1"
         android:text="QR"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,13 +62,42 @@
         android:id="@+id/txtResultadoQR"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginEnd="96dp"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toStartOf="@+id/salir"
-        app:layout_constraintStart_toEndOf="@+id/btnScan"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.591" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/story_outline"
+        android:layout_width="83dp"
+        android:layout_height="83dp"
+        android:layout_gravity="center"
+        android:layout_margin="4dp"
+        android:layout_marginTop="4dp"
+        app:cardBackgroundColor="@color/black"
+        app:cardCornerRadius="422dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            app:cardCornerRadius="40dp">
+
+            <ImageView
+                android:id="@+id/img_story"
+                android:layout_width="71dp"
+                android:layout_height="72dp"
+                android:src="@drawable/img_avatar2" />
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

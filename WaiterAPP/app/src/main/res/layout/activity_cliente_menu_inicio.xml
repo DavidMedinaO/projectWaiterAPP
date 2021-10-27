@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FDFEFE"
-    tools:context=".Admin">
-
+    tools:context=".ClienteMenuInicio">
     <Button
         android:id="@+id/salir"
         android:layout_width="69dp"
@@ -51,6 +49,5 @@
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
