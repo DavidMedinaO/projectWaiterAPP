@@ -116,7 +116,7 @@ public class Cliente extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     Log.d("TAG","OK! Works fine!");
                     Toast.makeText( Cliente.this, "Se elimino correctamente", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(Cliente.this, Login.class));
+                    startActivity(new Intent(Cliente.this, LoginTabFragment.class));
                     finish();
                 }
             }

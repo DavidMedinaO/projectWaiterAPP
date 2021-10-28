@@ -5,96 +5,98 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#D5D8DC"
-
-    tools:context=".Login">
+    tools:context=".LoginAdapter">
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="50dp"
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="280dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent=".30"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0"
+        app:srcCompat="@drawable/banner" />
+
+    <ImageView
+        android:id="@+id/iv_opacity"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/black"
+        android:alpha="0.1"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/logo" />
+        app:layout_constraintHeight_percent=".34"
+        app:layout_constraintVertical_bias="0" />
 
-    <EditText
-        android:drawableLeft="@drawable/ic_email"
-        android:drawablePadding="10dp"
-        android:paddingLeft="10dp"
-        android:background="@drawable/edittext_rounded"
-        android:id="@+id/editTextTextPersonName"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/logo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias=".5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.02" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="32dp"
-        android:ems="10"
-        android:hint="Email"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        android:textColor="@color/black"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent=".7"
+        app:layout_constraintVertical_bias="1"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/view_rounded_login">
 
-    <EditText
-        android:drawableLeft="@drawable/ic_password"
-        android:drawablePadding="10dp"
-        android:paddingLeft="10dp"
-        android:background="@drawable/edittext_rounded"
-        android:id="@+id/editTextTextPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="32dp"
-        android:ems="10"
-        android:hint="Contraseña"
-        android:inputType="textPassword"
-        android:minHeight="48dp"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabRippleColor="@null"
+            android:background="@android:color/transparent"
+            app:tabSelectedTextColor="@color/cardview_dark_background"
+            app:tabIndicator="@null"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/animation_list_btn_1"
-        android:text="Login"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/ti_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Login" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
-        android:text="¿No tienes una cuenta?"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toStartOf="@+id/register"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/ti_signup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Signup"/>
 
-    <TextView
-        android:id="@+id/register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="100dp"
-        android:textColor="@color/black"
-        android:text="Registrate"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        </com.google.android.material.tabs.TabLayout>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/view_pager2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintHeight_percent="0.8"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tab_layout"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
