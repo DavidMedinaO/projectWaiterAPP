@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ClienteMenuInicio">
+    tools:context=".ClienteMenuInicio"
+    tools:openDrawer="start">
+
     <Button
         android:id="@+id/salir"
         android:layout_width="69dp"
@@ -36,7 +38,10 @@
         android:layout_height="567dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" >
+
+
+    </ListView>
 
     <TextView
         android:id="@+id/textView5"

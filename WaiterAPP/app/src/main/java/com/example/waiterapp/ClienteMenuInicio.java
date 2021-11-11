@@ -1,9 +1,18 @@
 package com.example.waiterapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 
 import android.os.Bundle;
+import android.view.Menu;
 import android.widget.ListView;
+
+import com.example.waiterapp.databinding.ActivityMain2Binding;
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 
@@ -12,6 +21,7 @@ public class ClienteMenuInicio extends AppCompatActivity {
     private ListView lvItems;
     private Adaptador adaptador;
     private ArrayList<ItemMenu> listMenu;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +33,8 @@ public class ClienteMenuInicio extends AppCompatActivity {
         listMenu = GetArrayItems();
         adaptador = new Adaptador(this,GetArrayItems());
         lvItems.setAdapter(adaptador);
+
+
     }
 
     //Llenar lista con los items del menu
@@ -49,4 +61,5 @@ public class ClienteMenuInicio extends AppCompatActivity {
         listItem.add(new ItemMenu(R.drawable.comida6,"PASTAS","PEDIR"));
         return listItem;
     }
+
 }

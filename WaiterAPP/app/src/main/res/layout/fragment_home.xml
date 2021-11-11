@@ -7,5 +7,53 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment" >
 
+    <Button
+        android:id="@+id/salir"
+        android:layout_width="69dp"
+        android:layout_height="38dp"
+        android:background="@drawable/animation_list_btn_1"
+        android:text="SALIR"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.807"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.979" />
+
+    <Button
+        android:id="@+id/eliminar"
+        android:layout_width="141dp"
+        android:layout_height="36dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/animation_list_btn_1"
+        android:text="Eliminar Perfil"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.159"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ListView
+        android:id="@+id/lvItems"
+        android:layout_width="409dp"
+        android:layout_height="567dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+
+    </ListView>
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="136dp"
+        android:text="MENÚ"
+        android:textSize="50dp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
