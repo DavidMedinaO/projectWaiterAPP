@@ -75,14 +75,14 @@ public class Adaptador extends BaseAdapter  {
 
                 if(pantalla.equals("EDITAR")){
 
-                    Intent intent = new Intent(context, adminprueba.class);
+                    Intent intent = new Intent(context, editarborrarmenu.class);
                     intent.putExtra("ObjetoE", Item);
                     context.startActivity(intent);
 
 
 
                 }else{
-                    Intent intent = new Intent(context, AgregarMenu.class);
+                    Intent intent = new Intent(context, adminprueba.class);
                     intent.putExtra("ObjetoE", Item);
                     context.startActivity(intent);
 

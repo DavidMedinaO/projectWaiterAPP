@@ -21,8 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 
-public class Admin extends AppCompatActivity {
-
+public class Pedidos extends AppCompatActivity {
     private Button button, buttonElimi, btnagregar;
     private FirebaseAuth mAuth;
 
@@ -33,8 +32,7 @@ public class Admin extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin);
-
+        setContentView(R.layout.activity_pedidos);
         //Mostrar items Menú
         lvItems = findViewById(R.id.lvItems);
         listMenu = GetArrayItems();
@@ -49,7 +47,7 @@ public class Admin extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 mAuth.signOut();
-                startActivity(new Intent(Admin.this, Login.class));
+                startActivity(new Intent(Pedidos.this, Login.class));
             }
         });
 
@@ -69,13 +67,11 @@ public class Admin extends AppCompatActivity {
         btnagregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Admin.this, AgregarMenu.class);
-                Admin.this.startActivity(intent);
+                Intent intent = new Intent(Pedidos.this, AgregarMenu.class);
+                Pedidos.this.startActivity(intent);
             }
         });
-
-
-    }//End onCreate
+    }
 
     //Conexion de java y xml
     private void init(){
@@ -96,8 +92,8 @@ public class Admin extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
                     Log.d("TAG","OK! Works fine!");
-                    Toast.makeText( Admin.this, "Se elimino correctamente", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(Admin.this, Login.class));
+                    Toast.makeText( Pedidos.this, "Se elimino correctamente", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(Pedidos.this, Login.class));
                     finish();
                 }
             }
@@ -141,9 +137,9 @@ public class Admin extends AppCompatActivity {
     private ArrayList<ItemMenu>  ListHabit2(){
 
         ArrayList<ItemMenu> listItem = new ArrayList<>();
-        DbHelper helper = new DbHelper(this,"BD",null, 1);
+        DbHelper2 helper = new DbHelper2(this,"BD2",null, 1);
         SQLiteDatabase db = helper.getWritableDatabase();
-        String SQL = "Select Id , Nombre,Descripcion,Precio from Menu";
+        String SQL = "Select Id , Nombre,Descripcion,Precio from Pedido";
         //String SQL = "Select * from Contactos";
         Cursor c = db.rawQuery(SQL,null);
 
@@ -158,42 +154,42 @@ public class Admin extends AppCompatActivity {
 
                 if(c.getString(1).equals("PIZZAS")){
 
-                    listItem.add(new ItemMenu(R.drawable.comida4,Nombre,"EDITAR"));
+                    listItem.add(new ItemMenu(R.drawable.comida4,Nombre,"r"));
 
                 }
 
                 if(c.getString(1).equals("SOPAS")){
 
-                    listItem.add(new ItemMenu(R.drawable.comida5,Nombre,"EDITAR"));
+                    listItem.add(new ItemMenu(R.drawable.comida5,Nombre,"r"));
 
                 }
 
                 if(c.getString(1).equals("PASTAS")){
 
-                    listItem.add(new ItemMenu(R.drawable.comida6,Nombre,"EDITAR"));
+                    listItem.add(new ItemMenu(R.drawable.comida6,Nombre,"r"));
 
                 }
 
                 if(c.getString(1).equals("HAMBURGUESA")){
 
-                    listItem.add(new ItemMenu(R.drawable.comida3,Nombre,"EDITAR"));
+                    listItem.add(new ItemMenu(R.drawable.comida3,Nombre,"r"));
 
                 }
 
                 if(c.getString(1).equals("PERROS")){
 
-                    listItem.add(new ItemMenu(R.drawable.comida7,Nombre,"EDITAR"));
+                    listItem.add(new ItemMenu(R.drawable.comida7,Nombre,"r"));
 
                 }
                 if(c.getString(1).equals("CARNES")){
 
-                    listItem.add(new ItemMenu(R.drawable.comida8,Nombre,"EDITAR"));
+                    listItem.add(new ItemMenu(R.drawable.comida8,Nombre,"r"));
 
                 }
 
                 if(c.getString(1).equals("ENSALADAS")){
 
-                    listItem.add(new ItemMenu(R.drawable.comida9,Nombre,"EDITAR"));
+                    listItem.add(new ItemMenu(R.drawable.comida9,Nombre,"r"));
 
                 }
 
@@ -204,5 +200,4 @@ public class Admin extends AppCompatActivity {
         db.close();
         return listItem;
     }
-
 }

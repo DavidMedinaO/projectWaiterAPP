@@ -1,10 +1,12 @@
 package com.example.waiterapp.ui.home;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -15,10 +17,14 @@ import androidx.lifecycle.ViewModelProvider;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.waiterapp.Adaptador;
+import com.example.waiterapp.AgregarMenu;
 import com.example.waiterapp.DbHelper;
 import com.example.waiterapp.ItemMenu;
+import com.example.waiterapp.Login;
+import com.example.waiterapp.Pedidos;
 import com.example.waiterapp.R;
 import com.example.waiterapp.databinding.FragmentHomeBinding;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
@@ -27,8 +33,11 @@ public class HomeFragment extends Fragment {
     private ListView lvItems;
     private Adaptador adaptador;
     private ArrayList<ItemMenu> listMenu;
+    private Button button, buttonElimi, btnagregar,btnpedido;
+    private FirebaseAuth mAuth;
 
-private FragmentHomeBinding binding;
+
+    private FragmentHomeBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
@@ -38,10 +47,28 @@ private FragmentHomeBinding binding;
 
         //Mostrar items Menú
 
+        btnpedido =root.findViewById(R.id.btnpedido);
+        button = root.findViewById(R.id.salir);
         lvItems = root.findViewById(R.id.lvItems);
         listMenu = GetArrayItems();
         adaptador = new Adaptador(getContext(),GetArrayItems());
         lvItems.setAdapter(adaptador);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mAuth.signOut();
+                startActivity(new Intent(getContext(), Login.class));
+            }
+        });
+
+        btnpedido.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), Pedidos.class);
+                getContext().startActivity(intent);
+            }
+        });
 
         return root;
     }

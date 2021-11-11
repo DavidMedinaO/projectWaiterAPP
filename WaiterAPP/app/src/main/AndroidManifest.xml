@@ -14,6 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WaiterAPP">
         <activity
+            android:name=".Pedidos"
+            android:exported="true" />
+        <activity
+            android:name=".editarborrarmenu"
+            android:exported="true" />
+        <activity
             android:name=".AgregarMenu"
             android:exported="true" />
         <activity

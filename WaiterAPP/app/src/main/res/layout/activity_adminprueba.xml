@@ -101,7 +101,7 @@
         android:layout_marginTop="120dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/animation_list_btn_1"
-        android:text="Guardar"
+        android:text="Agregar"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

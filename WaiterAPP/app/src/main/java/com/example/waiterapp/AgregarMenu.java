@@ -32,7 +32,7 @@ public class AgregarMenu extends AppCompatActivity {
 
         //Item = (ItemMenu) getIntent().getSerializableExtra("ObjetoE");
 
-        //btnImagen.setBackgroundResource(Item.getImgFoto());
+        btnImagen.setBackgroundResource(R.drawable.signo);
         //lbTitulo.setText(Item.getTitulo());
 
         //ediproducto.setText(Item.getTitulo());

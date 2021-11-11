@@ -39,7 +39,7 @@
                 android:text="Pizzas"
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="30sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/img_comida"
                 app:layout_constraintEnd_toEndOf="parent"
