@@ -1,5 +1,6 @@
 package com.example.waiterapp.ui.home;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,8 +12,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import android.database.sqlite.SQLiteDatabase;
 
 import com.example.waiterapp.Adaptador;
+import com.example.waiterapp.DbHelper;
 import com.example.waiterapp.ItemMenu;
 import com.example.waiterapp.R;
 import com.example.waiterapp.databinding.FragmentHomeBinding;
@@ -56,7 +59,7 @@ private FragmentHomeBinding binding;
 
         ArrayList<ItemMenu> listItem = new ArrayList<>();
 
-        listItem.add(new ItemMenu(R.drawable.comida4,"PIZZAS","PEDIR"));
+       /* listItem.add(new ItemMenu(R.drawable.comida4,"PIZZAS","PEDIR"));
         listItem.add(new ItemMenu(R.drawable.comida5,"SOPAS","PEDIR"));
         listItem.add(new ItemMenu(R.drawable.comida6,"PASTAS","PEDIR"));
         listItem.add(new ItemMenu(R.drawable.comida3,"HAMBURGUESA","PEDIR"));
@@ -64,7 +67,8 @@ private FragmentHomeBinding binding;
         listItem.add(new ItemMenu(R.drawable.comida8,"CARNES","PEDIR"));
         listItem.add(new ItemMenu(R.drawable.comida9,"ENSALADAS","PEDIR"));
         listItem.add(new ItemMenu(R.drawable.comida5,"SOPAS","PEDIR"));
-        listItem.add(new ItemMenu(R.drawable.comida6,"PASTAS","PEDIR"));
+        listItem.add(new ItemMenu(R.drawable.comida6,"PASTAS","PEDIR"));*/
+        listItem = ListHabit2();
         return listItem;
     }
 
@@ -72,5 +76,72 @@ private FragmentHomeBinding binding;
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    private ArrayList<ItemMenu>  ListHabit2(){
+
+        ArrayList<ItemMenu> listItem = new ArrayList<>();
+        DbHelper helper = new DbHelper(getContext(),"BD",null, 1);
+        SQLiteDatabase db = helper.getWritableDatabase();
+        String SQL = "Select Id , Nombre,Descripcion,Precio from Menu";
+        //String SQL = "Select * from Contactos";
+        Cursor c = db.rawQuery(SQL,null);
+
+        if(c.moveToFirst()){
+
+            do{
+
+                String Nombre = c.getString(1);
+                String Descripcion = c.getString(2);
+                String Precio = c.getString(3);
+
+
+                    if(c.getString(1).equals("PIZZAS")){
+
+                            listItem.add(new ItemMenu(R.drawable.comida4,Nombre,"PEDIR"));
+
+                    }
+
+                    if(c.getString(1).equals("SOPAS")){
+
+                            listItem.add(new ItemMenu(R.drawable.comida5,Nombre,"PEDIR"));
+
+                    }
+
+                    if(c.getString(1).equals("PASTAS")){
+
+                        listItem.add(new ItemMenu(R.drawable.comida6,Nombre,"PEDIR"));
+
+                    }
+
+                    if(c.getString(1).equals("HAMBURGUESA")){
+
+                        listItem.add(new ItemMenu(R.drawable.comida3,Nombre,"PEDIR"));
+
+                    }
+
+                    if(c.getString(1).equals("PERROS")){
+
+                        listItem.add(new ItemMenu(R.drawable.comida7,Nombre,"PEDIR"));
+
+                    }
+                    if(c.getString(1).equals("CARNES")){
+
+                        listItem.add(new ItemMenu(R.drawable.comida8,Nombre,"PEDIR"));
+
+                    }
+
+                    if(c.getString(1).equals("ENSALADAS")){
+
+                        listItem.add(new ItemMenu(R.drawable.comida9,Nombre,"PEDIR"));
+
+                    }
+
+            }while (c.moveToNext());
+
+        }
+
+        db.close();
+        return listItem;
     }
 }

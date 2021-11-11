@@ -163,7 +163,7 @@ public class Login extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
                         if(mAuth.getCurrentUser().getUid().equals("dW31puoYi9bVRiZ5O43HPoQTVAg2")){
-                            Toast.makeText( Login.this, "Hola ADMIN", Toast.LENGTH_SHORT).show();
+                            Toast.makeText( Login.this, "Hola ADMINISTRADOR", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(Login.this, Admin.class));
                         }else{
                             Toast.makeText( Login.this, "Bienvenid@", Toast.LENGTH_SHORT).show();

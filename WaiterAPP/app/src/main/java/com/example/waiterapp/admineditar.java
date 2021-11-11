@@ -2,6 +2,8 @@ package com.example.waiterapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.widget.ListView;
 
@@ -45,5 +47,6 @@ public class admineditar extends AppCompatActivity {
         listItem.add(new ItemMenu(R.drawable.comida6,"PASTAS","EDITAR"));
         return listItem;
     }
+
 
 }

@@ -82,7 +82,7 @@ public class Adaptador extends BaseAdapter  {
 
 
                 }else{
-                    Intent intent = new Intent(context, Login.class);
+                    Intent intent = new Intent(context, AgregarMenu.class);
                     intent.putExtra("ObjetoE", Item);
                     context.startActivity(intent);
 

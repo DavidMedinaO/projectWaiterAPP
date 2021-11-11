@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,7 +23,7 @@ import java.util.ArrayList;
 
 public class Admin extends AppCompatActivity {
 
-    private Button button, buttonElimi;
+    private Button button, buttonElimi, btnagregar;
     private FirebaseAuth mAuth;
 
     private ListView lvItems;
@@ -47,7 +49,7 @@ public class Admin extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 mAuth.signOut();
-                startActivity(new Intent(Admin.this, Login.class));
+                startActivity(new Intent(Admin.this, AgregarMenu.class));
             }
         });
 
@@ -63,7 +65,14 @@ public class Admin extends AppCompatActivity {
         //conexion firebase
         mAuth = FirebaseAuth.getInstance();
 
-
+        //mandar pantalla agregar
+        btnagregar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Admin.this, AgregarMenu.class);
+                Admin.this.startActivity(intent);
+            }
+        });
 
 
     }//End onCreate
@@ -73,6 +82,7 @@ public class Admin extends AppCompatActivity {
 
         this.button = findViewById(R.id.salir);
         this.buttonElimi = findViewById(R.id.eliminar);
+        this.btnagregar = findViewById(R.id.btnagregar);
 
     }
 
@@ -112,7 +122,7 @@ public class Admin extends AppCompatActivity {
 
         ArrayList<ItemMenu> listItem = new ArrayList<>();
 
-        listItem.add(new ItemMenu(R.drawable.comida4,"PIZZAS","EDITAR"));
+        /*listItem.add(new ItemMenu(R.drawable.comida4,"PIZZAS","EDITAR"));
         listItem.add(new ItemMenu(R.drawable.comida5,"SOPAS","EDITAR"));
         listItem.add(new ItemMenu(R.drawable.comida6,"PASTAS","EDITAR"));
         listItem.add(new ItemMenu(R.drawable.comida3,"HAMBURGUESAS","EDITAR"));
@@ -120,7 +130,78 @@ public class Admin extends AppCompatActivity {
         listItem.add(new ItemMenu(R.drawable.comida8,"CARNES","EDITAR"));
         listItem.add(new ItemMenu(R.drawable.comida9,"ENSALADAS","EDITAR"));
         listItem.add(new ItemMenu(R.drawable.comida5,"SOPAS","EDITAR"));
-        listItem.add(new ItemMenu(R.drawable.comida6,"PASTAS","EDITAR"));
+        listItem.add(new ItemMenu(R.drawable.comida6,"PASTAS","EDITAR"));*/
+
+        listItem = ListHabit2();
+
+        return listItem;
+    }
+
+
+    private ArrayList<ItemMenu>  ListHabit2(){
+
+        ArrayList<ItemMenu> listItem = new ArrayList<>();
+        DbHelper helper = new DbHelper(this,"BD",null, 1);
+        SQLiteDatabase db = helper.getWritableDatabase();
+        String SQL = "Select Id , Nombre,Descripcion,Precio from Menu";
+        //String SQL = "Select * from Contactos";
+        Cursor c = db.rawQuery(SQL,null);
+
+        if(c.moveToFirst()){
+
+            do{
+
+                String Nombre = c.getString(1);
+                String Descripcion = c.getString(2);
+                String Precio = c.getString(3);
+
+
+                if(c.getString(1).equals("PIZZAS")){
+
+                    listItem.add(new ItemMenu(R.drawable.comida4,Nombre,"EDITAR"));
+
+                }
+
+                if(c.getString(1).equals("SOPAS")){
+
+                    listItem.add(new ItemMenu(R.drawable.comida5,Nombre,"EDITAR"));
+
+                }
+
+                if(c.getString(1).equals("PASTAS")){
+
+                    listItem.add(new ItemMenu(R.drawable.comida6,Nombre,"EDITAR"));
+
+                }
+
+                if(c.getString(1).equals("HAMBURGUESA")){
+
+                    listItem.add(new ItemMenu(R.drawable.comida3,Nombre,"EDITAR"));
+
+                }
+
+                if(c.getString(1).equals("PERROS")){
+
+                    listItem.add(new ItemMenu(R.drawable.comida7,Nombre,"EDITAR"));
+
+                }
+                if(c.getString(1).equals("CARNES")){
+
+                    listItem.add(new ItemMenu(R.drawable.comida8,Nombre,"EDITAR"));
+
+                }
+
+                if(c.getString(1).equals("ENSALADAS")){
+
+                    listItem.add(new ItemMenu(R.drawable.comida9,Nombre,"EDITAR"));
+
+                }
+
+            }while (c.moveToNext());
+
+        }
+
+        db.close();
         return listItem;
     }
 

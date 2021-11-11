@@ -9,27 +9,32 @@
 
     <Button
         android:id="@+id/salir"
-        android:layout_width="69dp"
-        android:layout_height="38dp"
+        android:layout_width="56dp"
+        android:layout_height="28dp"
+
         android:background="@drawable/animation_list_btn_1"
-        android:text="SALIR"
+
+        android:drawableLeft="@drawable/ic_salir"
+        android:drawableTint="#FDFEFE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.807"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.979" />
+        app:layout_constraintVertical_bias="0.022" />
 
     <Button
         android:id="@+id/eliminar"
-        android:layout_width="141dp"
-        android:layout_height="36dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="56dp"
+        android:layout_height="28dp"
+
+        android:layout_marginBottom="668dp"
         android:background="@drawable/animation_list_btn_1"
-        android:text="Eliminar Perfil"
+        android:drawableLeft="@drawable/ic_borrar"
+        android:drawableTint="#FDFEFE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.159"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ListView
@@ -51,6 +56,19 @@
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnagregar"
+        android:layout_width="56dp"
+        android:layout_height="28dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/animation_list_btn_1"
+        android:drawableLeft="@drawable/ic_mas"
+        android:drawableTint="#FDFEFE"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
