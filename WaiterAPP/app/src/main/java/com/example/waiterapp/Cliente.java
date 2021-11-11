@@ -96,11 +96,11 @@ public class Cliente extends AppCompatActivity {
                 Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
                 resultadoQR.setText(result.getContents());
                 //David Medina - Mandar a la pantalla correspondiente
-                Intent intent = new Intent(Cliente.this, ClienteMenuInicio.class);
-                startActivity(intent);
+                startActivity(new Intent(Cliente.this, MainActivity2.class));
 
             }
         } else {
+            Toast.makeText(this, "DFDSFDF: " + result.getContents(), Toast.LENGTH_LONG).show();
             super.onActivityResult(requestCode, resultCode, data);
         }
     }
