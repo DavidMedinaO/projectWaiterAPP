@@ -95,8 +95,13 @@ public class Cliente extends AppCompatActivity {
             } else {
                 Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
                 resultadoQR.setText(result.getContents());
-                //David Medina - Mandar a la pantalla correspondiente
-                startActivity(new Intent(Cliente.this, MainActivity2.class));
+                if(result.getContents().equals("J&C Delicias")){
+                    //David Medina - Mandar a la pantalla correspondiente
+                    startActivity(new Intent(Cliente.this, MainActivity2.class));
+                }else{
+                    Toast.makeText(this, "Código no registrado: " , Toast.LENGTH_LONG).show();
+                }
+
 
             }
         } else {
